@@ -18,7 +18,7 @@ setup(
     author='Eric Ahn',
     author_email='wchill@chilly.codes',
     packages=['pytest_split_tests'],
-    version='1.0.9',
+    version='1.1.0',
     long_description=read('README.rst'),
     install_requires=['pytest>=2.5'],
     classifiers=['Development Status :: 5 - Production/Stable',
@@ -27,10 +27,10 @@ setup(
                  'Operating System :: OS Independent',
                  'Programming Language :: Python',
                  'Topic :: Software Development :: Testing',
-                 'Programming Language :: Python :: 2.7',
-                 'Programming Language :: Python :: 3.5',
                  'Programming Language :: Python :: 3.6',
-                 'Programming Language :: Python :: 3.7'
+                 'Programming Language :: Python :: 3.7',
+                 'Programming Language :: Python :: 3.8',
+                 'Programming Language :: Python :: 3.9'
                  ],
     entry_points={
         'pytest11': [

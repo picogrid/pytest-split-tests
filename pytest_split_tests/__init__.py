@@ -1,6 +1,5 @@
 # -*- coding: utf-8 -*-
 import json
-import math
 from random import Random
 
 from _pytest.config import create_terminal_writer
@@ -8,20 +7,22 @@ from _pytest.config import create_terminal_writer
 import pytest
 
 
-def get_group_size(total_items, total_groups):
-    """Return the group size."""
-    return int(math.ceil(float(total_items) / total_groups))
-
-
-def get_group(items, group_size, group_id):
+def get_group(items, total_items, total_groups, group_id):
     """Get the items from the passed in group based on group size."""
-    start = group_size * (group_id - 1)
-    end = start + group_size
+    base_group_size = total_items // total_groups
+    remainder = total_items % total_groups
+    start = 0
+    for i in range(1, group_id + 1):
+        if start >= len(items) or start < 0:
+            raise ValueError("Invalid test-group argument")
 
-    if start >= len(items) or start < 0:
-        raise ValueError("Invalid test-group argument")
+        this_group_size = base_group_size + (1 if i <= remainder else 0)
 
-    return items[start:end]
+        if i == group_id:
+            end = start + this_group_size
+            return items[start:end]
+
+        start += this_group_size
 
 
 def pytest_addoption(parser):

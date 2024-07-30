@@ -1,7 +1,7 @@
 Welcome to pytest-split-tests!
 ==============================
 
-pytest-split-tests allows you to split your test runs into groups of a specific
+picogrid-pytest-split-tests allows you to split your test runs into groups of a specific
 size to make it easier to split up your test runs.
 
 
@@ -11,7 +11,7 @@ Usage
 ::
 
     # Install pytest-split-tests
-    pip install pytest-split-tests
+    pip install picogrid-pytest-split-tests
 
     # Split the tests into 10 groups and run the second group
     py.test --test-group-count 10 --test-group=2
